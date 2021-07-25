@@ -3,16 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/gin-gonic/gin"
+	"github.com/anookinov/go-mojito/pkg/server"
 )
 
 func main() {
 	fmt.Printf("Go Mojito!!")
-	r := gin.Default()
-	r.GET("/ping", func (c *gin.Context)  {
-		c.JSON(200, gin.H{
-				"message": "pong",
-		})
-	})
+	r := server.SetupRouter()
 	r.Run() //listen and serve on 0.0.0.0:8080
 }
